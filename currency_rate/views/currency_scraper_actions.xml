@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <!-- action برای لیست مدل -->
+        <record id="action_currency_scraper" model="ir.actions.act_window">
+            <field name="name">Currency Scraper</field>
+            <field name="res_model">currency.scraper</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_currency_scraper_list"/>
+        </record>
+
+        <!-- action برای UI جدا -->
+        <record id="action_currency_scraper_ui" model="ir.actions.act_url">
+            <field name="name">Currency Scraper UI</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="url">/currency_scraper/ui</field>
+            <field name="target">self</field>
+        </record>
+    </data>
+</odoo>
