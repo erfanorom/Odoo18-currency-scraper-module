@@ -1,0 +1,21 @@
+.currency-box {
+  background: #f4f6fa;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.currency-box h2 {
+  text-align: center;
+  color: #333;
+}
+
+#currency-data-container > div {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.1rem;
+}
