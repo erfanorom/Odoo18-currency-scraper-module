@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Env
+.env
+*.env
+venv/
+ENV/
+env/
+.Python
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# Logs
+*.log
+
+# Odoo stuff
+*.zip
+*.swp
+*.bak
+*.tmp
+*.~*
+*.db
+.DS_Store
+
+# Odoo specific
+*.iml
+.idea/
+.vscode/
+*.egg-info/
+*.pot
+*.mo
+
+# Node / Web assets (if using webpack or npm)
+node_modules/
+dist/
+build/
+*.map
+web/assets/
+
+# Misc
+*.sqlite3
+*.tgz
+*.tar.gz
+
+# Windows / macOS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
