@@ -118,7 +118,7 @@
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4" id="text3">ابزارهای استفاده شده</h4>
                         <p class="lead mb-0" id="tools">
-                            ساخته شده به کمک HTML, CSS, JavaScript, Bootstrap, PostgreSQL, Python, Flask, Requests, BS4
+                            ساخته شده به کمک HTML, CSS, JavaScript, Bootstrap, PostgreSQL, Python, Flask, Requests, BS4, Odoo
                         </p>
                     </div>
                 </div>

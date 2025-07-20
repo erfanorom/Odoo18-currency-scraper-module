@@ -10984,7 +10984,7 @@ html {
 .footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #333747;
+  background-color: #2e3342;
   color: #fff;
 }
 .f-a {
@@ -10996,7 +10996,7 @@ html {
 
 
 .copyright {
-  background-color: #1e212e;
+  background-color: #1f222e;
 }
 #page-loader {
     transition: opacity 0.5s ease;
