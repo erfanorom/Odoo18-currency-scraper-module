@@ -16,9 +16,13 @@ class CurrencyScraper(models.Model):
     @api.model
     def import_scraped_data(self):
         try:
-            self.search([]).unlink()
-
             name, price, mini_flag, date = get_scraped_data()
+
+            if not (name and price and mini_flag and date):
+                _logger.warning("No new scraped data found. Skipping update.")
+                return  
+
+            self.search([]).unlink()
 
             for n, p, f, d in zip(name, price, mini_flag, date):
                 self.create({
@@ -27,5 +31,6 @@ class CurrencyScraper(models.Model):
                     'cFlag': f,
                     'cDate': d,
                 })
+
         except Exception as e:
             _logger.error(f"Error importing scraped data: {str(e)}")

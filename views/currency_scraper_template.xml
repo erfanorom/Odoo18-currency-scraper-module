@@ -40,7 +40,7 @@
                 <h1 class="display-2 text-uppercase mb-0 animate__animated animate__zoomIn">جدول نرخ ارزهای رایج</h1>
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><span style="margin: 0 5px;"></span></div>
+                    <div class="divider-custom-icon"><span style="margin: 0 10px;"></span></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <p class="masthead-subheading font-weight-light mb-0 animate__animated animate__pulse">
@@ -56,7 +56,7 @@
                 <h2 class="display-2 page-section-heading text-center text-uppercase text-secondary mb-0 animate__animated animate__zoomIn">جدول ارزها</h2>
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><span style="margin: 0 5px;"></span></div>
+                    <div class="divider-custom-icon"><span style="margin: 0 10px;"></span></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <div class="row justify-content-center">
@@ -67,15 +67,21 @@
                                 <thead class="position-sticky top-0 z-2">
                                     <tr>
                                         <th scope="col">#</th>
+                                        <th scope="col">پرچم</th>
                                         <th scope="col">ارز</th>
                                         <th scope="col">قیمت</th>
                                     </tr>
                                 </thead>
                                 <tbody id="currency-data-container">
                                     <tr>
-                                        <td colspan="3" class="text-center text-warning">در حال بارگذاری اطلاعات...</td>
+                                        <td colspan="4" class="text-center text-warning">در حال بارگذاری اطلاعات...</td>
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                    <tr class="text-center">
+                                        <td colspan="4" id="update-time">آخرین بروزرسانی: --:--:--</td>
+                                    </tr>
+                                </tfoot>
                             </table>
                             <div id="js-error" class="alert alert-danger text-center d-none mt-3" role="alert">
                                 دریافت اطلاعات با خطا مواجه شد. لطفاً اتصال اینترنت را بررسی کنید یا صفحه را رفرش کنید.
