@@ -17,7 +17,7 @@ function fetchCurrencyData() {
           <td>${i}</td>
           <td><img src="/currency_rate/static/img/flags/${item.cFlag}.png" alt="${item.cFlag}" style="width: 32px; height: auto;"></td>
           <td>${item.cName}</td>
-          <td>${item.cPrice}</td>
+          <td>${item.cPrice} ریال</td>
         `;
         container.appendChild(row);
         i++;
