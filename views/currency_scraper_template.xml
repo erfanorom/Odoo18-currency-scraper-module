@@ -20,7 +20,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top animate__animated animate__fadeIn" id="mainNav">
             <div class="container">
-                <a class="navbar-brand animate__animated animate__zoomIn" href="/">وبسایت تمرینی</a>
+                <a class="navbar-brand animate__animated animate__zoomIn" href="/odoo/action-738">صرافی</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded animate__animated animate__pulse" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     منو
                 </button>
@@ -44,7 +44,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <p class="masthead-subheading font-weight-light mb-0 animate__animated animate__pulse">
-                    قدرت گرفته از پایتون و وبسایت
+                    قدرت گرفته از اودو و وبسایت
                     <a href="https://www.tgju.org/" class="link-light" target="_blank">tgju</a>
                 </p>
             </div>
@@ -63,7 +63,7 @@
                     <div class="col-sm-11 col-xl-10 p-0">
                         <div class="table-responsive rounded-3 animate__animated animate__bounceIn" id="theTable">
                             <table class="table table-bordered table-striped table-hover table-dark">
-                                <caption>قیمت‌ها ممکن است دقیق نباشند. برای آپدیت صفحه را <a href="/">رفرش</a> کنید</caption>
+                                <caption>قیمت‌ها ممکن است دقیق نباشند. برای آپدیت صفحه را <a href="/currency_scraper/ui">رفرش</a> کنید</caption>
                                 <thead class="position-sticky top-0 z-2">
                                     <tr>
                                         <th scope="col">#</th>
