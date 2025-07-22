@@ -7,5 +7,16 @@
         <field name="interval_number">1</field>
         <field name="interval_type">minutes</field>
         <field name="active">True</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="ir_cron_update_wallet_balances" model="ir.cron">
+        <field name="name">Wallet - Update Balances</field>
+        <field name="model_id" ref="model_currency_wallet"/>
+        <field name="state">code</field>
+        <field name="code">model.update_wallet_balances()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="active">True</field>
+        <field name="sequence">2</field>
     </record>
 </odoo>

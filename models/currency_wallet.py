@@ -1,4 +1,7 @@
 from odoo import models, fields, api
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class CurrencyWallet(models.Model):
     _name = "currency.wallet"
@@ -44,3 +47,25 @@ class CurrencyWallet(models.Model):
         if not self.env.user.has_group('base.group_system'):
             args = [('user_id', '=', self.env.user.id)] + (args or [])
         return super()._search(args, offset=offset, limit=limit, order=order)
+
+    @api.model
+    def update_wallet_balances(self):
+        wallets = self.search([])
+        for record in wallets:
+            if record.currency_code == 'IRR':
+                record.rial_balance = 1.0
+            else:
+                cur = self.env['currency.scraper'].search(
+                    [('cFlag', '=', record.currency_code)],
+                    order="create_date desc", limit=1
+                )
+                try:
+                    record.rial_balance = float(cur.cPrice.replace(',', '').strip()) if cur.cPrice else 0.0
+                except:
+                    record.rial_balance = 0.0
+
+            record.total_assets = record.amount * record.rial_balance
+
+            _logger.info("Wallet updated for user: %s with currency: %s | New balance: %s | Total: %s",
+                         record.user_id.name, record.currency_code,
+                         record.rial_balance, record.total_assets)
