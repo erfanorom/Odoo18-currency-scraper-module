@@ -3,17 +3,12 @@
 <template id="currency_rate.template_ui" name="Currency Scraper Template">
     <t t-call="web.layout">
         <t t-set="head">
-            <!-- Meta & CDN Links -->
             <meta charset="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
             <meta name="author" content="Erfan"/>
-
-            <!-- External CSS/JS -->
             <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> 
             <link href="/currency_rate/static/src/css/styles.css" rel="stylesheet"/> 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> 
-
-            <!-- Required Asset Bundle -->
             <t t-call-assets="web.assets_frontend" t-js="false"/>
         </t>
 
@@ -130,7 +125,6 @@
             <div class="container" id="text"><small>.Made with !love by <b>Erfan</b>.</small></div>
         </div>
 
-        <!-- JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/currency_rate/static/src/js/refresh.js"></script>
     </t>

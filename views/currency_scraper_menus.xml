@@ -1,15 +1,48 @@
 <odoo>
-    <data>
-        <menuitem id="menu_currency_scraper_root" name="Currency Scraper" sequence="1"/>
+  <data>
 
-        <menuitem id="menu_currency_scraper" name="Currency Rates"
-                  parent="menu_currency_scraper_root"
-                  action="currency_rate.action_currency_scraper"
-                  sequence="1"/>
+<menuitem id="menu_currency_scraper_root"
+          name="Currency System"
+          sequence="1"
+          web_icon="currency_rate,static/description/icon.png"/>
 
-        <menuitem id="menu2_currency_scraper" name="Table of updated prices"
-                  parent="menu_currency_scraper_root"
-                  action="currency_rate.action_currency_scraper_ui"
-                  sequence="2" groups="base.group_user"/> 
-    </data>
+    <menuitem id="menu_currency_scraper"
+              name="Currency Rates"
+              parent="menu_currency_scraper_root"
+              action="currency_rate.action_currency_scraper"
+              sequence="1"/>
+
+    <menuitem id="menu2_currency_scraper"
+              name="Live rates"
+              parent="menu_currency_scraper_root"
+              action="currency_rate.action_currency_scraper_ui"
+              sequence="2"
+              groups="base.group_user"/>
+
+    <menuitem id="menu_currency_wallet"
+              name="Wallets"
+              parent="menu_currency_scraper_root"
+              action="currency_rate.action_currency_wallet"
+              sequence="3"/>
+
+    <menuitem id="menu_currency_transaction"
+              name="Buy/Sell"
+              parent="menu_currency_scraper_root"
+              action="currency_rate.action_currency_transaction"
+              sequence="4"/>
+
+    <menuitem id="menu_currency_topup"
+              name="Top-Up Requests"
+              parent="menu_currency_scraper_root"
+              action="currency_rate.action_currency_topup"
+              sequence="5"/>
+
+    <menuitem id="menu_currency_topup_admin"
+              name="Pending Top-Ups"
+              parent="menu_currency_scraper_root"
+              action="currency_rate.action_currency_topup_admin"
+              sequence="6"
+              groups="base.group_system"/>
+
+  </data>
 </odoo>

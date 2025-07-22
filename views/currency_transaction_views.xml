@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_currency_transaction_form" model="ir.ui.view">
+        <field name="name">currency.transaction.form</field>
+        <field name="model">currency.transaction</field>
+        <field name="arch" type="xml">
+            <form string="New transaction">
+                <sheet>
+                    <group>
+                        <field name="user_id" readonly="1"/>
+                        <field name="transaction_type"/>
+                        <field name="currency_code"/>
+                        <field name="amount"/>
+                        <field name="price_at_transaction" readonly="1"/>
+                        <field name="total_value" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_currency_transaction_list" model="ir.ui.view">
+        <field name="name">currency.transaction.list</field>
+        <field name="model">currency.transaction</field>
+        <field name="arch" type="xml">
+            <list string="Transaction list">
+                <field name="user_id"/>
+                <field name="transaction_type"/>
+                <field name="currency_code"/>
+                <field name="amount"/>
+                <field name="price_at_transaction"/>
+                <field name="total_value"/>
+                <field name="create_date"/>
+            </list>
+        </field>
+    </record>
+</odoo>

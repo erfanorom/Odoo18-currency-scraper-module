@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_currency_topup_form" model="ir.ui.view">
+        <field name="name">currency.topup.form</field>
+        <field name="model">currency.topup</field>
+        <field name="arch" type="xml">
+            <form string="Top-Up Request">
+                <sheet>
+                    <group>
+                        <field name="user_id" readonly="1"/>
+                        <field name="amount"/>
+                        <field name="state" readonly="1"/>
+                        <field name="create_date" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" type="object" string="Confirm Top-Up"
+                                class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+    <record id="view_currency_wallet_list" model="ir.ui.view">
+    <field name="name">currency.wallet.list</field>
+    <field name="model">currency.wallet</field>
+    <field name="arch" type="xml">
+        <list string="Wallet Balances">
+            <field name="user_id"/>
+            <field name="currency_code"/>
+            <field name="amount"/>
+            <field name="rial_balance"/>
+            <field name="total_assets"/>
+        </list>
+    </field>
+</record>
+
+    <record id="view_currency_wallet_form" model="ir.ui.view">
+        <field name="name">currency.wallet.form</field>
+        <field name="model">currency.wallet</field>
+        <field name="arch" type="xml">
+            <form string="Wallet Detail">
+                <sheet>
+                    <group>
+                        <field name="user_id" readonly="1"/>
+                        <field name="currency_code" readonly="1"/>
+                        <field name="amount"/>
+                        <field name="rial_balance"/>
+                        <field name="total_assets" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    </data>
+</odoo>

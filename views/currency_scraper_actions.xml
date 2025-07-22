@@ -1,6 +1,5 @@
 <odoo>
     <data>
-        <!-- action برای لیست مدل -->
         <record id="action_currency_scraper" model="ir.actions.act_window">
             <field name="name">Currency Scraper</field>
             <field name="res_model">currency.scraper</field>
@@ -8,12 +7,49 @@
             <field name="view_id" ref="view_currency_scraper_list"/>
         </record>
 
-        <!-- action برای UI جدا -->
         <record id="action_currency_scraper_ui" model="ir.actions.act_url">
             <field name="name">Currency Scraper UI</field>
             <field name="type">ir.actions.act_url</field>
             <field name="url">/currency_scraper/ui</field>
             <field name="target">self</field>
         </record>
+
+        <record id="action_currency_transaction" model="ir.actions.act_window">
+            <field name="name">Buy/Sell Currency</field>
+            <field name="res_model">currency.transaction</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                هنوز تراکنشی ثبت نشده!
+            </p>
+        </field>
+        </record>
+
+            <record id="action_currency_wallet" model="ir.actions.act_window">
+        <field name="name">Wallets</field>
+        <field name="res_model">currency.wallet</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p>در اینجا موجودی ارزهای هر کاربر را می‌بینید.</p>
+        </field>
+    </record>
+
+    <record id="action_currency_topup" model="ir.actions.act_window">
+        <field name="name">Top-Up Requests</field>
+        <field name="res_model">currency.topup</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+<record id="action_currency_topup_admin" model="ir.actions.act_window">
+    <field name="name">Top-Up Admin</field>
+    <field name="res_model">currency.topup</field>
+    <field name="view_mode">list,form</field>
+    <field name="domain">[('state', '=', 'draft')]</field>
+</record>
+
+
     </data>
 </odoo>
