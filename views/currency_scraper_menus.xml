@@ -37,12 +37,32 @@
               action="currency_rate.action_currency_topup"
               sequence="5"/>
 
+    <menuitem id="menu_currency_panel_admin"
+      name="Admin panel"
+      sequence="6"
+      groups="base.group_system"
+      parent="menu_currency_scraper_root"
+      />
+
+
     <menuitem id="menu_currency_topup_admin"
-              name="Pending Top-Ups"
-              parent="menu_currency_scraper_root"
-              action="currency_rate.action_currency_topup_admin"
-              sequence="6"
-              groups="base.group_system"/>
+      name="Pending Top-Ups"
+      parent="menu_currency_panel_admin"
+      action="currency_rate.action_currency_topup_admin"
+    />
+
+    <menuitem id="menu_currency_transactions_admin"
+      name="Transaction history"
+      parent="menu_currency_panel_admin"
+      action="currency_rate.action_currency_transaction_admin"
+    />
+
+    <menuitem id="menu_currency_wallets_admin"
+      name="Wallets"
+      parent="menu_currency_panel_admin"
+      action="currency_rate.action_currency_wallet_admin"
+    />
+
 
   </data>
 </odoo>

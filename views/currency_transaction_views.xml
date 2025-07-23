@@ -18,7 +18,6 @@
         </field>
     </record>
 
-
     <record id="view_currency_transaction_list" model="ir.ui.view">
         <field name="name">currency.transaction.list</field>
         <field name="model">currency.transaction</field>

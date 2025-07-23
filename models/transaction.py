@@ -26,7 +26,11 @@ class CurrencyTransaction(models.Model):
             user_id = vals.get('user_id') or self.env.user.id
             vals['user_id'] = user_id
 
-            currency = self.env['currency.scraper'].search([('cFlag', '=', vals['currency_code'])], limit=1)
+            currency_code = vals.get('currency_code')
+            if not currency_code:
+                raise UserError(_("Currency code is required."))
+
+            currency = self.env['currency.scraper'].search([('cFlag', '=', currency_code)], limit=1)
             if not currency or not currency.cPrice:
                 raise UserError(_("Currency not found or price unavailable."))
 
@@ -38,12 +42,12 @@ class CurrencyTransaction(models.Model):
             vals['price_at_transaction'] = price
             total_price = price * vals['amount']
 
-            wallet = self.env['currency.wallet'].search([
+            wallet = self.env['currency.wallet'].sudo().search([
                 ('user_id', '=', user_id),
-                ('currency_code', '=', vals['currency_code'])
+                ('currency_code', '=', currency_code)
             ], limit=1)
 
-            rial_wallet = self.env['currency.wallet'].search([
+            rial_wallet = self.env['currency.wallet'].sudo().search([
                 ('user_id', '=', user_id),
                 ('currency_code', '=', 'IRR')
             ], limit=1)
@@ -51,26 +55,26 @@ class CurrencyTransaction(models.Model):
             if vals['transaction_type'] == 'buy':
                 if not rial_wallet or rial_wallet.amount < total_price:
                     raise UserError(_("Insufficient IRR balance."))
-                rial_wallet.amount -= total_price
+                rial_wallet.sudo().amount -= total_price
 
                 if wallet:
-                    wallet.amount += vals['amount']
+                    wallet.sudo().amount += vals['amount']
                 else:
-                    self.env['currency.wallet'].create({
+                    self.env['currency.wallet'].sudo().create({
                         'user_id': user_id,
-                        'currency_code': vals['currency_code'],
+                        'currency_code': currency_code,
                         'amount': vals['amount'],
                     })
 
             elif vals['transaction_type'] == 'sell':
                 if not wallet or wallet.amount < vals['amount']:
                     raise UserError(_("Not enough currency balance to sell."))
-                wallet.amount -= vals['amount']
+                wallet.sudo().amount -= vals['amount']
 
                 if rial_wallet:
-                    rial_wallet.amount += total_price
+                    rial_wallet.sudo().amount += total_price
                 else:
-                    self.env['currency.wallet'].create({
+                    self.env['currency.wallet'].sudo().create({
                         'user_id': user_id,
                         'currency_code': 'IRR',
                         'amount': total_price,
@@ -102,7 +106,7 @@ class CurrencyTransaction(models.Model):
     def _get_currency_selection(self):
         currencies = self.env['currency.scraper'].search([])
         return [(c.cFlag, c.cName or c.cFlag) for c in currencies if c.cFlag]
-    
+
     @api.model
     def _search(self, args, offset=0, limit=None, order=None):
         if not self.env.user.has_group('base.group_system'):
