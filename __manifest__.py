@@ -6,6 +6,7 @@
     'summary': 'A simple scraper to fetch currency rates',
     'description': 'This module scrapes currency rates from tgju.org.',
     'author': 'Erfan',
+    'license': 'MIT',
     'depends': ['base', 'web'],
     'data': [
     'security/ir.model.access.csv',
