@@ -84,49 +84,54 @@ document.addEventListener('DOMContentLoaded', () => {
             loader.classList.add('hidden');
         }, 300);
     }
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.getElementById('text').classList.add('animate__animated', 'animate__pulse');
-      document.getElementById('text3').classList.add('animate__animated', 'animate__pulse');
-      document.getElementById('text1').classList.add('animate__animated', 'animate__pulse');
-      document.getElementById('text2').classList.add('animate__animated', 'animate__pulse');
-      document.getElementById('text3').classList.add('animate__animated', 'animate__pulse');
-      document.getElementById('tools').classList.add('animate__animated', 'animate__zoomIn');
-      document.getElementById('contact').classList.add('animate__animated', 'animate__zoomIn');
-      document.getElementById('icons').classList.add('animate__animated', 'animate__zoomIn');
-      document.getElementById('aboutUs').classList.add('animate__fadeIn', 'animate__fast');
-      document.getElementById('CPS').classList.add('animate__fadeIn', 'animate__fast');
-    } else {
-     document.getElementById('text').classList.remove('animate__animated', 'animate__pulse');
-      document.getElementById('text1').classList.remove('animate__animated', 'animate__pulse');
-      document.getElementById('text2').classList.remove('animate__animated', 'animate__pulse');
-      document.getElementById('text3').classList.remove('animate__animated', 'animate__pulse');
-      document.getElementById('tools').classList.remove('animate__animated', 'animate__zoomIn');
-      document.getElementById('contact').classList.remove('animate__animated', 'animate__zoomIn');
-      document.getElementById('icons').classList.remove('animate__animated', 'animate__zoomIn');
-      document.getElementById('aboutUs').classList.remove('animate__fadeIn', 'animate__faster');
-      document.getElementById('CPS').classList.remove('animate__fadeIn', 'animate__faster');
-    }
+const animations = [
+    { id: 'text', classes: ['animate__animated', 'animate__pulse'] },
+    { id: 'text1', classes: ['animate__animated', 'animate__pulse'] },
+    { id: 'text2', classes: ['animate__animated', 'animate__pulse'] },
+    { id: 'text3', classes: ['animate__animated', 'animate__pulse'] },
+    { id: 'tools', classes: ['animate__animated', 'animate__zoomIn'] },
+    { id: 'contact', classes: ['animate__animated', 'animate__zoomIn'] },
+    { id: 'icons', classes: ['animate__animated', 'animate__zoomIn'] },
+    { id: 'aboutUs', classes: ['animate__fadeIn', 'animate__fast'] },
+    { id: 'CPS', classes: ['animate__fadeIn', 'animate__faster'] }
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      animations.forEach(({ id, classes }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (entry.isIntersecting) {
+          el.classList.add(...classes);
+        } else {
+          el.classList.remove(...classes);
+        }
+      });
+    });
   });
-});
 
 observer.observe(document.getElementById('aboutUs'));
 
-const target = document.getElementById('theTable');
+const tableAnimation = {
+  id: 'theTable',
+  classes: ['animate__fadeIn', 'animate__fast']
+};
+
+const target = document.getElementById(tableAnimation.id);
+
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      target.classList.add('animate__fadeIn', 'animate__fast');
+    if (!target) return;
 
-    }
-    else{
-        target.classList.remove('animate__fadeIn', 'animate__fast');
+    if (entry.isIntersecting) {
+      target.classList.add(...tableAnimation.classes);
+    } else {
+      target.classList.remove(...tableAnimation.classes);
     }
   });
 });
 
-observer2.observe(document.getElementById('theTable'));
+observer2.observe(target);
 
 
 
