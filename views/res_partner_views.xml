@@ -1,5 +1,4 @@
 <odoo>
-    <!-- لیست ویو -->
     <record id="view_partner_list_wallet_inherit" model="ir.ui.view">
         <field name="name">res.partner.tree.inherit.wallet</field>
         <field name="model">res.partner</field>
@@ -11,7 +10,6 @@
         </field>
     </record>
 
-    <!-- فرم ویو -->
     <record id="view_partner_form_wallet_inherit" model="ir.ui.view">
         <field name="name">res.partner.form.inherit.wallet</field>
         <field name="model">res.partner</field>

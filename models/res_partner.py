@@ -20,9 +20,13 @@ class ResPartner(models.Model):
             if not is_admin:
                 users = users.filtered(lambda u: u.id == current_user.id)
 
-            if users:
+            if not users:
+                partner.wallet_total_assets_display = "unknown"
+            else:
                 wallets = Wallet.search([('user_id', 'in', users.ids)])
                 total = sum(wallet.total_assets for wallet in wallets)
-                partner.wallet_total_assets_display = f"{total:,.2f} IRR"
-            else:
-                partner.wallet_total_assets_display = "unknown"
+                # If no wallets found, return "unknown" instead of 0
+                if total == 0:
+                    partner.wallet_total_assets_display = "unknown"
+                else:
+                    partner.wallet_total_assets_display = f"{total:,.2f} IRR"
