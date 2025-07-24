@@ -17,6 +17,7 @@
     'views/currency_scraper_actions.xml',
     'views/currency_scraper_menus.xml',
     'views/currency_scraper_template.xml', 
+    'views/register_template.xml',
     'views/res_partner_views.xml', 
     'data/cron.xml',
     ],
